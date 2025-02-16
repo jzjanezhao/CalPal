@@ -1,17 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Events</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Small image positioned in the top-left corner -->
+  <img src="assets/event_clipart.jpg" class="top-left-image" alt="Event Image">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ event.name }}</ion-card-title>
+      <ion-card-subtitle>{{ event.startDate }} - {{ event.endDate }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Location:</strong> {{ event.location }}</p>
+      <p>{{ event.description }}</p>
+      <p><strong>Hosted by:</strong> {{ event.host }}</p>
+      <p><strong>Cost:</strong> {{ event.cost === 0 ? 'Free' : '$' + event.cost }}</p>
+      <p><strong>Attendees:</strong> {{ event.size }}</p>
+      <ion-button fill="outline" expand="full" color="primary" href="{{ event.url }}" target="_blank">
+        More Info
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
